@@ -1,0 +1,133 @@
+// @use 'root';
+// @import 'vxeCommon';
+
+@mixin flexbet{
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin flexcenbet{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flexcencol{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+
+.el-divider--horizontal{
+  margin: 0;
+}
+
+.mainSection{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+    .right{
+      position: relative;
+      padding: 6%;
+      border-radius: 6px;
+      width: 40%;
+      .title{
+        font-size: 16px;
+        font-family: Source Han Sans CN;
+        font-weight: 600;
+        line-height: 12px;
+        margin: 10px auto;
+        color: #000000;
+        text-align: center;
+      }
+      .formBox{
+        position: relative;
+        @include flexcencol;
+        width: 90%;
+        .phoneSec{
+          position: relative;
+          width: 100%;
+        }
+        .el-form{
+          width: 100%;
+
+        }
+        .el-form-item {
+          margin-bottom: 30px;
+      }
+    .submititem {
+      margin: 47px 0 10px 0;
+      .submitbtn {
+        // box-sizing: content-box;
+        width: 300px;
+        height: 40px;
+        background: rgba(255, 152, 18, 0.932);
+        border-radius: 4px;
+        font-size: 16px;
+        line-height: 40px;
+        color: #ffffff;
+        text-align: center;
+        font-family: Microsoft YaHei;
+        cursor: pointer;
+        // border: 1px solid #ff9712;
+        &:hover{
+          // border: 1px solid #ffffff;
+          background-color: #fcaf4c;
+
+        }
+        &:actived{
+          color: #f3f2f0;
+          background-color: #60dd41;
+        }
+        
+      }
+    }
+      }
+
+      
+  }
+  &::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    // background-image: url('https://junchenlunoffice.oss-cn-shenzhen.aliyuncs.com/plugs/logo1/loginLogo.png');
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // filter:blur(2px);
+    // z-index:-1;
+}
+
+
+}
+
+
+
+
+
+
+
+
+ .phoneBox::-webkit-scrollbar{
+        width:2px;
+        height:10px;
+        /**/
+      }
+      .phoneBox::-webkit-scrollbar-track{
+        background: rgb(239, 239, 239);
+        border-radius:2px;
+      }
+      .phoneBox::-webkit-scrollbar-thumb{
+        background: #bfbfbf;
+        border-radius:10px;
+      }
+      .phoneBox::-webkit-scrollbar-thumb:hover{
+        background: #333;
+      }
+      .phoneBox::-webkit-scrollbar-corner{
+        background: #179a16;
+      }
