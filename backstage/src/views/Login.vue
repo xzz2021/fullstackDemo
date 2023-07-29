@@ -8,6 +8,9 @@
 
 
       <div class="mainSection">
+        <!-- <div class="loginbox"> -->
+
+        
           <div class="title">登录</div>
           <div class="formBox">
             <el-form  :model="loginForm"  :rules="rules" ref="ruleFormRef">
@@ -22,6 +25,7 @@
               </el-form-item>
             </el-form>
           </div>
+        <!-- </div> -->
       </div>
 
 
@@ -210,13 +214,11 @@ import { useRouter } from 'vue-router'
   min-width: 260px;
   max-width: 350px; 
   margin: 0 auto;
-  background-image: url('https://junchenlunoffice.oss-cn-shenzhen.aliyuncs.com/plugs/logo1/loginLogo.png');
-    background-repeat: no-repeat;
-    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 6px;
+    background-color: #84d4f4;
     // filter:blur(2px);
     .title{
       margin: 20px 0;

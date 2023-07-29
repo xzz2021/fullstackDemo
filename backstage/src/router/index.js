@@ -64,11 +64,11 @@ router.beforeEach(async (to, from, next) => {
   // console.log('check: ', check)
   // if(check != null) 
       // let nn= new xzzfetch()
-      let res1 = await api.getUserinfo()
+      let res1 = await api.getUserinfo()  //  --------
       // console.log('res1: ', res1);
       // if(res1.status == 404) alert('后端接口无法连接,请检查服务器!')
       // if(res1?.username != '' && res1?.username != undefined) isAuthenticated = true
-      if(res1?.username) isAuthenticated = true
+      if(res1?.username) isAuthenticated = true  //----
       // if (to.name == 'login' && res1?.status == 404) {
       //   alert('后端接口无法连接,请检查服务器')
       //   next() 

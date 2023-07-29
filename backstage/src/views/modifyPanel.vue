@@ -48,9 +48,9 @@
   </el-dialog>
 
 
-    <el-dialog v-model="imgVisible" center title="图片预览" width="70%" draggable>
-      <div style="display: flex;  justify-content: center;">
-          <img style="max-width: 100%; " :src="previewImageUrl" alt="Preview Image" />
+    <el-dialog v-model="imgVisible" center title="图片预览" >
+      <div style="height: 60vh; text-align: center;">
+        <el-image style="height: 100%;" :src="previewImageUrl" alt="Preview Image" fit="fill"/>
       </div>
     </el-dialog>
 
@@ -130,6 +130,9 @@ const deleteImg = async (url) => {
       // 关闭面板的回调函数
       const closeDialog = () => {
         formData.self = { _id: '', name: '', num: '', urls: [] }  //重置表单
+        fileList.self.length = 0  // 重置上传图片列表
+        console.log("🚀 ~ file: modifyPanel.vue:133 ~ closeDialog ~ 重置表单:")
+        
       }
 
 
@@ -180,5 +183,6 @@ const deleteImg = async (url) => {
 :deep(.el-upload--picture-card) {
     width: 100px;
     height: 100px;
+  margin: 0 8px 8px 0;
 }
 </style>

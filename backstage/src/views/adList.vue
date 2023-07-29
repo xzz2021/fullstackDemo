@@ -5,14 +5,19 @@
 -->
 <template>
 
-  <div style="margin:20px">
-    <span>这是顶部轮播图的列表编辑页</span> 
-      <span style="margin-left:20px" >
+  <div class="adlistcontainer">
+
+
+  <div  class="adlistbox" >
+    <h2>这是顶部轮播图的列表编辑页</h2> 
+    <div>
+      <span>
         <router-link to="/"><el-button type="success" color="#ff9712" size="small" style="color:#fff;">回首页</el-button></router-link>
     </span>
-    <span style="margin-left:20px" >
+    <span>
         <router-link to="/mm"><el-button type="success"  size="small" >去所有展示图片列表的编辑页</el-button></router-link>
     </span>
+  </div>
   </div>
     
 <div class="addBox">
@@ -26,15 +31,15 @@
     <div class="addSection" v-if="openAdd">
         <!-- 图片上传 -->
      <el-upload action="#" list-type="picture-card" :auto-upload="false" v-model:file-list="fileList.self" :limit="1"
-       :on-exceed="handleExceed" accept="image/jpeg,image/gif,image/png" :on-change="onUploadChange">
+       :on-exceed="handleExceed" accept="image/jpeg,image/gif,image/png" :on-change="onUploadChange" >
            <template  #default >
             <div class="addtitle">添加图片</div>
            </template>
            <template  #file="{ file }">
       <img class="el-upload-list__item-thumbnail" :src="file.url" alt="" >
       <span class="el-upload-list__item-actions">
-        <span class="el-upload-list__item-delete" @click="handleRemove(file)">
-          <div class="deleteTitle">删除</div>
+        <span class="el-upload-list__item-delete" @click="handleRemove()">
+          <div class="deleteTitle" style="font-size: 12px;">删除</div>
         </span>
       </span>
     </template>
@@ -64,7 +69,7 @@
         </div>
       </div>
   </div>
-
+</div>
 </template>
 <script setup>
 
@@ -83,7 +88,11 @@ const sortBy = (arr, k) => arr.concat().sort((a, b) => (a[k] > b[k] ? 1 : a[k] <
       ElMessage.error('数据获取失败,请刷新页面或检查数据库')
     }
     }
-
+    const  handleRemove = (file) => {
+      fileList.self.length = 0
+    // console.log('file: ', file);
+    // 删除时 on-remove 会自动移除file文件
+      }
     // 删除项目
     const deleteItem = async (item) =>{
   // item: {_id: 345345435, url: 'images/7867897huhoh.jpg'}
@@ -114,14 +123,10 @@ const sortBy = (arr, k) => arr.concat().sort((a, b) => (a[k] > b[k] ? 1 : a[k] <
 
     // 添加项目函数
     const openAdd = ref(false)
+    
     const openAddbox = () =>{
-    // console.log('====ZHIXINGLE')
-    // let url =  Math.floor(Math.random() * 2) ? 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g7/M00/0E/00/ChMkLGPHUZiIaQHdAAGBkOSFvqkAAL3OANTfq4AAYGo699.jpg' : 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g7/M00/0E/09/ChMkLGMxCYeIYVapABUiNwouqU0AAH5vQICQNEAFSJP842.jpg'
-    // pictureList.self.push({index: Math.floor(Math.random() * 116), url })
-    // return 
-    if(openAdd.value == true) return openAdd.value = false
-    openAdd.value = true
-    // console.log('openAdd.value: ', openAdd.value);
+    openAdd.value = !openAdd.value
+    openAdd.value || (fileList.self.length = 0) //面板收起时置空图片上传列表
 
     }
     const indexValue = ref(null)
@@ -162,7 +167,26 @@ const sortBy = (arr, k) => arr.concat().sort((a, b) => (a[k] > b[k] ? 1 : a[k] <
   })
 
 </script>
+
+
 <style  lang='scss' scoped>
+ 
+ .adlistcontainer{
+  max-width: 800px;
+    margin: 0 auto;
+ }
+ .adlistbox{
+
+  display: flex;
+  justify-content: space-between;
+  min-width: 600px;
+  div{
+    width: 280px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+ }
  .addBox{
     margin: 10px;
     .addSection{
@@ -194,5 +218,9 @@ const sortBy = (arr, k) => arr.concat().sort((a, b) => (a[k] > b[k] ? 1 : a[k] <
   background: var(--el-fill-color-light);
   color: var(--el-text-color-secondary);
   font-size: 30px;
+}
+
+:deep(.el-upload--picture-card){
+  margin: 0 8px 8px 0;
 }
 </style>

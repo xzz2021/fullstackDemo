@@ -4,17 +4,22 @@
  * @LastEditTime: 2023-02-04 11:33:05
 -->
 <template>
-        <div style="margin:20px">
-            <span>这是所有角色图片的列表编辑页</span> 
+  <div class="mmlistContainer">
+
+
+        <div class="mmlistbox">
+            <h2>这是所有图片展示列表的编辑页</h2>
+            <div>
               <span style="margin-left:20px" >
                 <router-link to="/"><el-button type="success" color="#ff9712" size="small" style="color:#fff;">回首页</el-button></router-link>
               </span>
               <span style="margin-left:20px" >
                 <router-link to="/ad"><el-button type="success"  size="small" >去轮播图编辑页</el-button></router-link>
               </span>
+            </div>
           </div>
 
-          <el-button type="success" size="small" class="modify" @click="openPanel('add')">增加新的项目</el-button>
+          <el-button style="margin: 10px 0" type="success" size="small" class="modify" @click="openPanel('add')">增加新的项目</el-button>
 
           <!-- 列表展示区域 -->
         <div>列表展示区域</div>
@@ -41,7 +46,7 @@
         </div>
 
 
-
+      </div>
 <modifyPanel ref="modifyPanelRef" @triggerFromSon= "getList"/>
 </template>
 <script setup>
@@ -101,7 +106,21 @@
 
 </script>
 <style  lang='scss' scoped>
-
+ .mmlistContainer{
+  max-width: 800px;
+    margin: 0 auto;
+ }
+.mmlistbox{
+  display: flex;
+  justify-content: space-between;
+  min-width: 600px;
+  div{
+    width: 220px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
 .pageBox, .proList{
     width: 100%;
     margin: 6px auto;
@@ -127,4 +146,6 @@
       }
   }
   }
+
+
 </style>
