@@ -21,7 +21,6 @@ const updateList = async () => {
       ElMessage.error('数据获取失败,请刷新页面或检查数据库')
     }
 }
-
   onMounted(async () =>{
     await updateList()
   })
@@ -31,7 +30,7 @@ const updateList = async () => {
    <div class="wholebox ">
     <el-carousel >
       <el-carousel-item v-for="item in pictureList.self" :key="item">
-        <el-image @click="jumpTo" style="width: 100%;height: 100%;" :src="`http://127.0.0.1:3006/${item.url}`" fit="contain" />
+        <el-image @click="jumpTo" style="width: 100%;height: 100%;" :src="`http://127.0.0.1:3006/${item.url}`" fit="fill" />
       </el-carousel-item>
     </el-carousel>
   </div>
@@ -43,7 +42,7 @@ const updateList = async () => {
   width: 100%;
 }
   :deep(.el-carousel__container) {
-    height: 230px ;
+    max-height: 360px ;
 }
 
 </style>
