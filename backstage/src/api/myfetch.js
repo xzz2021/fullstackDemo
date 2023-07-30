@@ -4,8 +4,9 @@
 
 //对Fetch的封装：让其支持params/请求主体的格式化/请求地址的公共前缀 
 
-let baseURL = 'http://127.0.0.1:3006/',
-inital = {
+// let baseURL = 'http://127.0.0.1:3006/'
+let baseURL = 'http://xzz2022.top:3006/'
+let inital = {
 method: 'POST',  // 如果config不传method默认为POST
 params: null,
 body: null,

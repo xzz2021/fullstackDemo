@@ -26,7 +26,7 @@
           <div class="proList">
               <div class="previewItem" v-for="(item,index) in curList.self" :key="index">
                 <div class="itemBox">
-                  <el-image  style="width: 60px; height: 60%;"  :src="`http://127.0.0.1:3006/${item.urls[0]}`" fit="contain" />
+                  <el-image  style="width: 60px; height: 60%;"  :src="`${baseUrl}${item.urls[0]}`" fit="contain" />
                     <div class="describe">
                       <div>{{item.name}}</div>
                       <div>{{item.num}}</div>
@@ -50,6 +50,7 @@
 <modifyPanel ref="modifyPanelRef" @triggerFromSon= "getList"/>
 </template>
 <script setup>
+import { baseUrl } from './baseurl.js'
 
 
 

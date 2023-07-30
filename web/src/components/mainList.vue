@@ -4,6 +4,7 @@
  * @LastEditTime: 2023-02-11 11:35:35
 -->
 <script setup>
+import { baseUrl } from './baseurl'
 
   const rawList = reactive({self: []})
 // 根据页面尺寸及页码截取当前页面表格数据
@@ -75,7 +76,7 @@
     <div class="proList">
       <div class="previewItem" v-for="(item,index) in curList.self" :key="index" @click="toDetailPage(item)">
         <div class="itemBox">
-        <el-image  style="height: 80%;"  :src="`http://127.0.0.1:3006/${item.urls[0]}`" fit="scale-dowm" >
+        <el-image  style="height: 80%;"  :src="`${baseUrl}${item.urls[0]}`" fit="scale-down" >
               <template #error>
                 <div class="">数据异常,加载失败,检查url</div>
               </template>

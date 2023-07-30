@@ -57,9 +57,9 @@
 <div class="wholebox ">
       <div class="eachBox" v-for="item in pictureList.self" :key="item">
 
-        <el-image  style="width: 160px; max-height: 90px;" :src="`http://127.0.0.1:3006/${item.url}`" fit="contain">
+        <el-image  style="width: 160px; max-height: 90px;" :src="`${baseUrl}${item.url}`" fit="contain">
+          <div>{{ src }}</div>
         <template #error>
-          <div class="errTemp">888</div> 
         </template>
         </el-image>
         <div class="operate">
@@ -72,6 +72,9 @@
 </div>
 </template>
 <script setup>
+
+import { baseUrl } from './baseurl.js'
+
 
 const pictureList = reactive({self: []})
 

@@ -11,6 +11,8 @@ class xzzfetch {
     // 定义new传进来的参数  new xzzfetch('url')
     constructor(param) {
         this.encryptParam = param
+        // this.baseUrl = 'http://127.0.0.1:3006/'
+        this.baseUrl = 'http://xzz2022.top:3006/'
       }
 
     async login(userinfo) {
@@ -86,7 +88,7 @@ class xzzfetch {
             const body = new FormData()
             body.append('img', file)
             body.append('index', index)
-            let rawres =  await fetch('http://127.0.0.1:3006/upload/uploadImg', 
+            let rawres =  await fetch(`${this.baseUrl}upload/uploadImg`, 
             { method: 'post', body, headers: 
             { 'Authorization': window.localStorage.getItem('accessToken')}})
             return rawres.json()
@@ -132,7 +134,7 @@ class xzzfetch {
                 body1.append("images", files[i]);
             }
                 let body = objectToFormData(item, body1, "data")
-            let rawres =  await fetch('http://127.0.0.1:3006/upload/batchUploadImg', 
+            let rawres =  await fetch(`${this.baseUrl}upload/batchUploadImg`, 
             { method: 'post', body, headers: 
             { 'Authorization': window.localStorage.getItem('accessToken')}})
             return rawres.json()

@@ -6,11 +6,12 @@
 <template>
 
   <div class="imgBox" v-for="(item, index) in currentItem.self.urls" :key="index">
-    <el-image style="width: 100%;" :src="`http://127.0.0.1:3006/${item}`" fit="contain" />
+    <el-image style="width: 100%;" :src="`${baseUrl}${item}`" fit="contain" />
   </div>
 
 </template>
 <script setup>
+import { baseUrl } from './baseurl'
 
 const currentItem = reactive({self: {}})
 onMounted(() => {

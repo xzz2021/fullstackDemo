@@ -5,6 +5,8 @@
 -->
 <script setup>
 
+import { baseUrl } from './baseurl'
+
 const pictureList = reactive({self: []})
 
 const jumpTo = () => {
@@ -30,7 +32,7 @@ const updateList = async () => {
    <div class="wholebox ">
     <el-carousel >
       <el-carousel-item v-for="item in pictureList.self" :key="item">
-        <el-image @click="jumpTo" style="width: 100%;height: 100%;" :src="`http://127.0.0.1:3006/${item.url}`" fit="fill" />
+        <el-image @click="jumpTo" style="width: 100%;height: 100%;" :src="`${baseUrl}${item.url}`" fit="fill" />
       </el-carousel-item>
     </el-carousel>
   </div>

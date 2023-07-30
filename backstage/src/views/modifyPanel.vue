@@ -23,7 +23,7 @@
     </el-input>
     <div class="wholeItem" >
         <div class="eachItem" v-for="(item,index) in formData.self.urls" :key="index">
-          <el-image  style="width: 70px; max-height: 100px;"  :src="`http://127.0.0.1:3006/${item}`" fit="contain" />
+          <el-image  style="width: 70px; max-height: 100px;"  :src="`${baseUrl}${item}`" fit="contain" />
            <div class="deleteBtn" @click="deleteImg(item)">X</div>
         </div>
     </div>
@@ -57,6 +57,8 @@
 
 </template>
 <script setup>
+
+import { baseUrl } from './baseurl.js'
 
 const formData = reactive({self: { _id: '', name: '', num: '', urls: [] }})
 
@@ -131,7 +133,6 @@ const deleteImg = async (url) => {
       const closeDialog = () => {
         formData.self = { _id: '', name: '', num: '', urls: [] }  //重置表单
         fileList.self.length = 0  // 重置上传图片列表
-        console.log("🚀 ~ file: modifyPanel.vue:133 ~ closeDialog ~ 重置表单:")
         
       }
 
