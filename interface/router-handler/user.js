@@ -79,7 +79,6 @@ exports.login = async (req, res) => {
     const userinfo = req.body
     // console.log('userinfo: ', userinfo);
     let isExisted = await userList.findOne({username: userinfo.username})
-    // console.log('isExisted: ', isExisted);
     if (isExisted == null) return res.cc('用户名不存在')
 
         // ⑥对比用户提交的密码和数据库的密码是否一致
