@@ -10,7 +10,7 @@
 > **backstage**--后台录入管理端，
 >> 两者都是使用vite构建，基于vue3+elementplus，使用pinia进行状态管理,使用token进行权限验证及路由守卫；
 
-> **interface**--后端接口,基于node的express框架，jwt进行权限验证，文件上传操作使用multer。
+> **interface**--后端接口,基于node的express框架，jwt进行权限验证，文件上传操作使用multer。.
 
 
 ##### [前台实时页面](http://xzz2022.top:98)
